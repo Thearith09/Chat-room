@@ -1,6 +1,6 @@
 <template>
   <div class="welcome container">
-    <h1>Welcome</h1>
+    <h1>Welcome To Our Chat Room</h1>
     <div v-if="showLoginForm">
       <h2>Log in</h2>
       <Login />
@@ -41,11 +41,12 @@ export default {
 }
 .welcome h1 {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
+  text-transform: uppercase;
 }
 .welcome h2 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
 }
 /* form style */
 .welcome form {

@@ -30,7 +30,7 @@ export default {
       };
 
       await addDoc(chat);
-      if (!error) message.value = "";
+      if (!error.value) message.value = "";
     };
 
     return { message, handleSubmit, error };
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 form {
   margin: 10px;
 }
