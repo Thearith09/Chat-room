@@ -5,6 +5,17 @@
       <h2>Log in</h2>
       <Login />
       <p>No account yet? <span @click="showLoginForm = false">Signup</span></p>
+      <p>Login With</p>
+      <img
+        @click="loginWithGoogle"
+        src="../../public/google.png"
+        alt="facebook icon"
+      />
+      <img
+        @click="loginWithFacebook"
+        src="../../public/facebook.png"
+        alt="google icon"
+      />
     </div>
     <div v-else>
       <h2>Sing up</h2>
@@ -20,6 +31,11 @@
 import Signup from "../components/Signup";
 import Login from "../components/Login";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { firebase } from "../firebase/config";
+import useGoogleLogin from "../composables/useGoogleLogin";
+import useFacebookLogin from "../composables/useFacebookLogin";
+
 export default {
   name: "Home",
   components: {
@@ -27,9 +43,31 @@ export default {
     Login,
   },
   setup() {
+    const router = useRouter();
     const showLoginForm = ref(true);
 
-    return { showLoginForm };
+    const loginWithFacebook = async () => {
+      const provider = new firebase.auth.FacebookAuthProvider();
+      const { error, facebookLogin } = useFacebookLogin();
+      await facebookLogin(provider);
+
+      console.log(error.value);
+      if (!error.value) {
+        router.push({ name: "Chatroom" });
+      }
+    };
+
+    const loginWithGoogle = async () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const { error, googleLogin } = useGoogleLogin();
+      await googleLogin(provider);
+
+      if (!error.value) {
+        router.push({ name: "Chatroom" });
+      }
+    };
+
+    return { showLoginForm, loginWithGoogle, loginWithFacebook };
   },
 };
 </script>
@@ -73,5 +111,11 @@ export default {
 }
 .welcome button {
   margin: 20px auto;
+}
+.welcome img {
+  border: none;
+  max-width: 30px;
+  padding: 5px;
+  cursor: pointer;
 }
 </style>
