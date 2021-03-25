@@ -8,12 +8,12 @@
       <p>Login With</p>
       <img
         @click="loginWithGoogle"
-        src="../../public/google.png"
+        src="@/assets/google.png"
         alt="facebook icon"
       />
       <img
         @click="loginWithFacebook"
-        src="../../public/facebook.png"
+        src="@/assets/facebook.png"
         alt="google icon"
       />
     </div>
@@ -81,10 +81,13 @@ export default {
   font-weight: bold;
   font-size: 30px;
   text-transform: uppercase;
+  text-decoration: underline;
 }
 .welcome h2 {
   font-weight: bold;
+  font-style: italic;
   font-size: 25px;
+  text-decoration: underline;
 }
 /* form style */
 .welcome form {
@@ -112,10 +115,14 @@ export default {
 .welcome button {
   margin: 20px auto;
 }
+.welcome p {
+  padding: 5px;
+}
 .welcome img {
+  margin: 5px;
   border: none;
   max-width: 30px;
-  padding: 5px;
   cursor: pointer;
+  display: inline-block;
 }
 </style>

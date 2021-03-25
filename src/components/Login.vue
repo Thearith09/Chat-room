@@ -50,13 +50,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .relative {
   position: relative;
 }
 .absolute {
   position: absolute;
-  top: 3%;
+  top: 8%;
   left: 48%;
 }
 </style>

@@ -64,7 +64,7 @@ export default {
 }
 .absolute {
   position: absolute;
-  top: 12%;
+  top: 17%;
   left: 48%;
 }
 </style>

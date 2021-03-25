@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   margin: 10px;
 }

@@ -7,9 +7,33 @@
         v-for="document in formattedDocuments"
         :key="document.id"
       >
+        <div
+          class="p-1 max-w-xs bg-white rounded-xl shadow-md flex items-center space-x-4"
+        >
+          <div class="flex-shrink-0">
+            <svg
+              class="w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div class="break-all">
+            <div class="text-xl font-medium text-blue-600">
+              {{ document.user }}
+            </div>
+            <p class="text-gray-500">
+              {{ document.message }}
+            </p>
+          </div>
+        </div>
         <span class="created-at">{{ document.createdAt }}</span>
-        <span class="name">{{ document.user }}</span>
-        <span class="message">{{ document.message }}</span>
       </div>
     </div>
   </div>
@@ -59,7 +83,7 @@ export default {
   font-size: 12px;
   margin-bottom: 7px;
 }
-.name {
+/*.name {
   font-weight: bold;
   font-size: 16px;
   color: rgb(1, 5, 219);
@@ -71,5 +95,5 @@ export default {
 .messages {
   max-height: 400px;
   overflow: auto;
-}
+} */
 </style>
